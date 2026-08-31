@@ -69,3 +69,6 @@ h2 { margin: 0 0 .7rem; }
 .ig-card { background: white; border-radius: var(--radius); padding: 1.2rem; border: 1px solid #eadfd6; }
 .site-footer { padding: 2rem 0 3rem; font-size: .85rem; color: var(--muted); border-top: 1px solid #e6e0d8; }
 .instagram-media { margin: 1rem auto !important; }
+.ig-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .ig-grid { grid-template-columns: 1fr 1fr; } }
+.ig-grid .instagram-media { min-width: 0 !important; width: 100% !important; }
