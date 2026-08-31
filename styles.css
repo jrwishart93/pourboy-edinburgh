@@ -1,0 +1,71 @@
+/* Pourboy — sky blue, white, red from the Orwell Terrace box */
+:root {
+  --blue: #4aa3d9;
+  --blue-deep: #1f6fa3;
+  --blue-pale: #d6eef8;
+  --red: #c2302a;
+  --cream: #f7f4ef;
+  --ink: #1c1a18;
+  --muted: #5a5550;
+  --paper: #ffffff;
+  --max: 44rem;
+  --radius: 16px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Source Serif 4", Georgia, serif;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.55;
+  font-size: 1.06rem;
+}
+img, iframe { max-width: 100%; display: block; }
+a { color: var(--blue-deep); }
+.skip { position: absolute; left: -999px; }
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  background: color-mix(in srgb, white 90%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 3px solid var(--red);
+}
+.header-inner {
+  max-width: var(--max); margin: 0 auto; padding: 0.7rem 1.1rem;
+  display: flex; justify-content: space-between; align-items: center; gap: .75rem;
+}
+.wordmark {
+  font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; color: var(--blue-deep); font-size: .95rem;
+}
+.nav { display: flex; gap: .85rem; flex-wrap: wrap; }
+.nav a {
+  font-family: system-ui, sans-serif; font-size: .78rem; letter-spacing: .04em;
+  text-transform: uppercase; text-decoration: none; color: var(--muted);
+}
+.hero { padding: 0 0 2rem; }
+.hero-photo {
+  width: 100%; max-height: 70vh; object-fit: cover; background: var(--blue-pale);
+}
+.hero-inner { max-width: var(--max); margin: 0 auto; padding: 1.4rem 1.1rem 0; }
+.eyebrow { font-family: system-ui, sans-serif; text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; color: var(--red); margin: 0 0 .4rem; }
+h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; margin: 0 0 .7rem; }
+.lede { margin: 0 0 1.1rem; }
+.btn-row { display: flex; flex-wrap: wrap; gap: .6rem; }
+.btn {
+  font-family: system-ui, sans-serif; text-decoration: none; padding: .7rem 1.05rem;
+  border-radius: 999px; font-weight: 650; font-size: .92rem;
+}
+.btn-primary { background: var(--blue-deep); color: white; }
+.btn-ghost { background: white; color: var(--ink); border: 2px solid var(--ink); }
+.hours { margin: 1rem 0 0; color: var(--muted); font-size: .95rem; }
+section { padding: 2rem 0; }
+.section-inner { max-width: var(--max); margin: 0 auto; padding: 0 1.1rem; }
+h2 { margin: 0 0 .7rem; }
+.map-card iframe { width: 100%; height: 240px; border: 0; border-radius: var(--radius); }
+.menu { list-style: none; padding: 0; margin: 1rem 0; }
+.menu li { display: flex; justify-content: space-between; gap: 1rem; padding: .55rem 0; border-bottom: 1px solid #e6e0d8; }
+.disclaimer { font-size: .85rem; color: var(--muted); }
+.ig-card { background: white; border-radius: var(--radius); padding: 1.2rem; border: 1px solid #eadfd6; }
+.site-footer { padding: 2rem 0 3rem; font-size: .85rem; color: var(--muted); border-top: 1px solid #e6e0d8; }
+.instagram-media { margin: 1rem auto !important; }
