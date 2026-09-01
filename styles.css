@@ -1,74 +1,98 @@
-/* Pourboy — sky blue, white, red from the Orwell Terrace box */
+/* Colours from the Orwell Terrace kiosk: sky blue, cream, brick red. */
 :root {
   --blue: #4aa3d9;
-  --blue-deep: #1f6fa3;
-  --blue-pale: #d6eef8;
+  --blue-deep: #1d6a9a;
+  --blue-pale: #e4f3fa;
   --red: #c2302a;
-  --cream: #f7f4ef;
-  --ink: #1c1a18;
-  --muted: #5a5550;
-  --paper: #ffffff;
-  --max: 44rem;
-  --radius: 16px;
+  --cream: #f4efe6;
+  --ink: #1a1714;
+  --muted: #5c564e;
+  --paper: #fffdf8;
+  --line: #e3d8c8;
+  --max: 42rem;
+  --radius: 12px;
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: "IBM Plex Sans", ui-sans-serif, sans-serif;
   color: var(--ink);
   background: var(--cream);
   line-height: 1.55;
-  font-size: 1.06rem;
+  font-size: 1.05rem;
 }
 img, iframe { max-width: 100%; display: block; }
 a { color: var(--blue-deep); }
-.skip { position: absolute; left: -999px; }
 .site-header {
   position: sticky; top: 0; z-index: 20;
-  background: color-mix(in srgb, white 90%, transparent);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
   backdrop-filter: blur(10px);
   border-bottom: 3px solid var(--red);
 }
 .header-inner {
-  max-width: var(--max); margin: 0 auto; padding: 0.7rem 1.1rem;
-  display: flex; justify-content: space-between; align-items: center; gap: .75rem;
+  max-width: var(--max); margin: 0 auto; padding: 0.65rem 1rem;
+  display: flex; justify-content: space-between; align-items: center;
 }
 .wordmark {
-  font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
-  text-decoration: none; color: var(--blue-deep); font-size: .95rem;
+  font-family: Newsreader, Georgia, serif; font-weight: 650;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  color: var(--blue-deep);
 }
-.nav { display: flex; gap: .85rem; flex-wrap: wrap; }
-.nav a {
-  font-family: system-ui, sans-serif; font-size: .78rem; letter-spacing: .04em;
-  text-transform: uppercase; text-decoration: none; color: var(--muted);
-}
-.hero { padding: 0 0 2rem; }
+.nav { display: flex; gap: 0.85rem; font-size: 0.82rem; }
+.nav a { text-decoration: none; color: var(--muted); }
+.hero { padding: 0 0 1.6rem; overflow: hidden; }
 .hero-photo {
-  width: 100%; max-height: 70vh; object-fit: cover; background: var(--blue-pale);
+  width: 100%; max-height: 62vh; object-fit: cover; object-position: center 40%;
+  background: var(--blue-pale); border-bottom: 6px solid var(--blue);
+  animation: hero-drift linear both;
+  animation-timeline: view();
+  animation-range: exit 0% exit 100%;
 }
-.hero-inner { max-width: var(--max); margin: 0 auto; padding: 1.4rem 1.1rem 0; }
-.eyebrow { font-family: system-ui, sans-serif; text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; color: var(--red); margin: 0 0 .4rem; }
-h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; margin: 0 0 .7rem; }
-.lede { margin: 0 0 1.1rem; }
-.btn-row { display: flex; flex-wrap: wrap; gap: .6rem; }
+@keyframes hero-drift {
+  from { transform: scale(1) translateY(0); }
+  to { transform: scale(1.12) translateY(-8%); }
+}
+.hero-inner, .section-inner { max-width: var(--max); margin: 0 auto; padding: 0 1rem; }
+.hero-inner { padding-top: 1.25rem; }
+.eyebrow {
+  margin: 0 0 0.35rem; font-size: 0.76rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--red);
+}
+h1, h2 { font-family: Newsreader, Georgia, serif; font-weight: 650; line-height: 1.18; }
+h1 { font-size: clamp(1.7rem, 6vw, 2.55rem); margin: 0 0 0.65rem; }
+h2 { font-size: clamp(1.35rem, 4vw, 1.75rem); margin: 0 0 0.65rem; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.55rem; }
 .btn {
-  font-family: system-ui, sans-serif; text-decoration: none; padding: .7rem 1.05rem;
-  border-radius: 999px; font-weight: 650; font-size: .92rem;
+  display: inline-flex; text-decoration: none; padding: 0.68rem 1.05rem;
+  border-radius: 999px; font-weight: 600; font-size: 0.92rem;
 }
 .btn-primary { background: var(--blue-deep); color: white; }
-.btn-ghost { background: white; color: var(--ink); border: 2px solid var(--ink); }
-.hours { margin: 1rem 0 0; color: var(--muted); font-size: .95rem; }
-section { padding: 2rem 0; }
-.section-inner { max-width: var(--max); margin: 0 auto; padding: 0 1.1rem; }
-h2 { margin: 0 0 .7rem; }
+.btn-ghost { background: var(--paper); color: var(--ink); border: 2px solid var(--ink); }
+.hours { margin: 1rem 0 0; color: var(--muted); }
+section { padding: 1.8rem 0; }
+#box {
+  background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  position: sticky; top: 3.2rem;
+}
 .map-card iframe { width: 100%; height: 240px; border: 0; border-radius: var(--radius); }
-.menu { list-style: none; padding: 0; margin: 1rem 0; }
-.menu li { display: flex; justify-content: space-between; gap: 1rem; padding: .55rem 0; border-bottom: 1px solid #e6e0d8; }
-.disclaimer { font-size: .85rem; color: var(--muted); }
-.ig-card { background: white; border-radius: var(--radius); padding: 1.2rem; border: 1px solid #eadfd6; }
-.site-footer { padding: 2rem 0 3rem; font-size: .85rem; color: var(--muted); border-top: 1px solid #e6e0d8; }
-.instagram-media { margin: 1rem auto !important; }
-.ig-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-@media (min-width: 720px) { .ig-grid { grid-template-columns: 1fr 1fr; } }
-.ig-grid .instagram-media { min-width: 0 !important; width: 100% !important; }
+.ig-wrap { background: var(--paper); border-radius: var(--radius); padding: 1.15rem 1rem; border: 1px solid var(--line); }
+.ig-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; margin-top: 1.1rem; }
+.instagram-media { margin: 0 auto !important; min-width: 0 !important; width: 100% !important; }
+.site-footer { padding: 2rem 0 3rem; font-size: 0.85rem; color: var(--muted); border-top: 4px solid var(--blue); }
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  animation: rise 0.7s ease forwards;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
+}
+@keyframes rise { to { opacity: 1; transform: none; } }
+@media (min-width: 720px) {
+  .ig-grid { grid-template-columns: 1fr 1fr; }
+  .hero-photo { max-height: 70vh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-photo, .reveal { animation: none; opacity: 1; transform: none; }
+  #box { position: static; }
+}
